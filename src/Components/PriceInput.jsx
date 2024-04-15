@@ -2,8 +2,7 @@ import { useState } from "react";
 import "./PriceInput.css";
 import { addComma } from "../utils/addComma";
 
-export default function PriceInput() {
-  const [price, setPrice] = useState("");
+export default function PriceInput({ price, setPrice }) {
   const [errMsg, setErrMsg] = useState("");
 
   const priceOnChange = (e) => {
@@ -29,15 +28,14 @@ export default function PriceInput() {
   };
 
   return (
-    <>
+    <div className="priceInput">
       <div className="title">入住費用（每人每晚）</div>
       <div className="priceWrapper">
         <label className="priceLabel" htmlFor="price">
           TWD
         </label>
-
         <input
-          className={`priceInput ${errMsg ? "error" : ""}`}
+          className={`input ${errMsg ? "error" : ""}`}
           data-error={errMsg ? errMsg : ""}
           type="text"
           placeholder="請輸入費用"
@@ -46,9 +44,9 @@ export default function PriceInput() {
           onBlur={handleOnBlur}
           onFocus={handleOnFocus}
         />
-        {errMsg && <span className="error-message">{errMsg}</span>}
-        <span className="priceInfo">輸入 0 表示免費</span>
+        {errMsg && <div className="error-message">{errMsg}</div>}
+        <div className="priceInfo">輸入 0 表示免費</div>
       </div>
-    </>
+    </div>
   );
 }

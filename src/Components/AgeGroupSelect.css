@@ -8,7 +8,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-bottom: 10px;
 }
 
 .ageSelectWrapper {
@@ -24,10 +23,10 @@
 .ageSelectWrapper select {
   border: none;
   outline: none;
-  padding: 8px;
   margin: 0;
   background-color: transparent;
   color: #666;
   font-size: 14px;
   cursor: pointer;
+  padding: 7px;
 }

@@ -1,39 +1,36 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import "./AgeGroupSelect.css";
 const MAX_AGE = 20;
 
-export default function AgeGroupSelect() {
-  const [startAge, setStartAge] = useState(0);
-  const [endAge, setEndAge] = useState(20);
-
+export default function AgeGroupSelect({
+  startAge,
+  setStartAge,
+  endAge,
+  setEndAge,
+  error
+}) {
   const handleStartAgeChange = useCallback(
     (e) => {
       const newStartAge = parseInt(e.target.value, 10);
       setStartAge(newStartAge);
-      if (newStartAge > endAge) {
-        setEndAge(newStartAge);
-      }
     },
-    [endAge]
+    [setStartAge]
   );
 
   const handleEndAgeChange = useCallback(
     (e) => {
       const newEndAge = parseInt(e.target.value, 10);
       setEndAge(newEndAge);
-      if (startAge > newEndAge) {
-        setStartAge(newEndAge);
-      }
     },
-    [startAge]
+    [setEndAge]
   );
 
   return (
-    <>
+    <div className="ageGroupSelect">
       <div className="title">年齡</div>
       <div className="ageWrapper">
-        <label className="ageLabel">Start Age:</label>
-        <div className="ageSelectWrapper">
+        <label className="ageLabel" htmlFor="startAge" />
+        <div className={`ageSelectWrapper ${error ? "error" : ""}`}>
           <select
             id="startAge"
             value={startAge}
@@ -46,8 +43,8 @@ export default function AgeGroupSelect() {
             ))}
           </select>
         </div>
-        ~<label className="ageLabel">End Age:</label>
-        <div className="ageSelectWrapper">
+        ~<label className="ageLabel" htmlFor="endAge" />
+        <div className={`ageSelectWrapper ${error ? "error" : ""}`}>
           <select value={endAge} onChange={handleEndAgeChange}>
             {Array.from({ length: MAX_AGE - startAge + 1 }, (_, i) => (
               <option key={i + startAge} value={i + startAge}>
@@ -57,6 +54,7 @@ export default function AgeGroupSelect() {
           </select>
         </div>
       </div>
-    </>
+      {error && <div className="error-message">{error}</div>}
+    </div>
   );
 }
