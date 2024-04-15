@@ -1,14 +1,6 @@
 import { useState } from "react";
 import "./PriceInput.css";
-const isValueValid = (value) => {
-  if (value === "") {
-    return "不可以為空白";
-  }
-  if (!value.match(/^\d*(,\d{3})*(\.\d+)?$/)) {
-    return "不可以輸入非數字字元";
-  }
-  return "";
-};
+import { addComma } from "../utils/addComma";
 
 export default function PriceInput() {
   const [price, setPrice] = useState("");
@@ -20,16 +12,19 @@ export default function PriceInput() {
     console.log("value", value);
   };
   const handleOnBlur = () => {
-    const errMsg = isValueValid(price);
-    if (errMsg) {
-      setErrMsg(errMsg);
-    } else {
-      setPrice(parseFloat(price).toLocaleString());
+    if (price === "") {
+      setErrMsg("不可以輸入空白");
+      return;
     }
+    if (isNaN(price)) {
+      setErrMsg("不可以輸入非數字字元");
+      return;
+    }
+
+    setPrice(addComma(price));
   };
 
   const handleOnFocus = () => {
-    setPrice(price.replace("/,/g", ""));
     setErrMsg("");
   };
 
