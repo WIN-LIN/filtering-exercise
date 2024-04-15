@@ -1,0 +1,32 @@
+.priceWrapper {
+  position: relative;
+}
+
+.priceLabel {
+  margin-right: 10px;
+}
+
+.priceInput {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.priceInput.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.priceInfo {
+  font-size: 12px;
+  color: #999;
+  display: block; /* or use margin-top as needed */
+}
