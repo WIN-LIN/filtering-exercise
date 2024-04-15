@@ -1,0 +1,27 @@
+.ageWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.ageSelectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+  background-color: #fff;
+}
+
+.ageSelectWrapper select {
+  border: none;
+  outline: none;
+  padding: 8px;
+  margin: 0;
+  background-color: transparent;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+}
