@@ -1,3 +1,9 @@
+.title {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
 .ageWrapper {
   display: flex;
   align-items: center;

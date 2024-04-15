@@ -29,27 +29,34 @@ export default function AgeGroupSelect() {
   );
 
   return (
-    <div className="ageWrapper">
-      <label className="ageLabel">Start Age:</label>
-      <div className="ageSelectWrapper">
-        <select id="startAge" value={startAge} onChange={handleStartAgeChange}>
-          {Array.from({ length: endAge + 1 }, (_, i) => (
-            <option key={i} value={i}>
-              {i}
-            </option>
-          ))}
-        </select>
+    <>
+      <div className="title">年齡</div>
+      <div className="ageWrapper">
+        <label className="ageLabel">Start Age:</label>
+        <div className="ageSelectWrapper">
+          <select
+            id="startAge"
+            value={startAge}
+            onChange={handleStartAgeChange}
+          >
+            {Array.from({ length: endAge + 1 }, (_, i) => (
+              <option key={i} value={i}>
+                {i}
+              </option>
+            ))}
+          </select>
+        </div>
+        ~<label className="ageLabel">End Age:</label>
+        <div className="ageSelectWrapper">
+          <select value={endAge} onChange={handleEndAgeChange}>
+            {Array.from({ length: MAX_AGE - startAge + 1 }, (_, i) => (
+              <option key={i + startAge} value={i + startAge}>
+                {i + startAge}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      ~<label className="ageLabel">End Age:</label>
-      <div className="ageSelectWrapper">
-        <select value={endAge} onChange={handleEndAgeChange}>
-          {Array.from({ length: MAX_AGE - startAge + 1 }, (_, i) => (
-            <option key={i + startAge} value={i + startAge}>
-              {i + startAge}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
+    </>
   );
 }

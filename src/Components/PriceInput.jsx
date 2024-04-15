@@ -34,23 +34,26 @@ export default function PriceInput() {
   };
 
   return (
-    <div className="priceWrapper">
-      <label className="priceLabel" htmlFor="price">
-        TWD
-      </label>
+    <>
+      <div className="title">入住費用（每人每晚）</div>
+      <div className="priceWrapper">
+        <label className="priceLabel" htmlFor="price">
+          TWD
+        </label>
 
-      <input
-        className={`priceInput ${errMsg ? "error" : ""}`}
-        data-error={errMsg ? errMsg : ""}
-        type="text"
-        placeholder="請輸入費用"
-        onChange={priceOnChange}
-        value={price}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-      />
-      {errMsg && <span className="error-message">{errMsg}</span>}
-      <span className="priceInfo">輸入 0 表示免費</span>
-    </div>
+        <input
+          className={`priceInput ${errMsg ? "error" : ""}`}
+          data-error={errMsg ? errMsg : ""}
+          type="text"
+          placeholder="請輸入費用"
+          onChange={priceOnChange}
+          value={price}
+          onBlur={handleOnBlur}
+          onFocus={handleOnFocus}
+        />
+        {errMsg && <span className="error-message">{errMsg}</span>}
+        <span className="priceInfo">輸入 0 表示免費</span>
+      </div>
+    </>
   );
 }
