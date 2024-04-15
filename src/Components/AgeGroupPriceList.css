@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.inputHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.addItem {
+  width: fit-content;
+}
