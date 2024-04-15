@@ -1,4 +1,4 @@
-const { getNumberIntervals } = require("./getNumberIntervals"); // Adjust the path as necessary
+import { getNumberIntervals } from "./getNumberIntervals";
 
 describe("getNumberIntervals", () => {
   test("identifies overlapping and non-included intervals", () => {
@@ -18,6 +18,30 @@ describe("getNumberIntervals", () => {
         [0, 4],
         [12, 13]
       ]
+    };
+    expect(getNumberIntervals(input)).toEqual(expected);
+  });
+
+  test("identifies overlapping 1", () => {
+    const input = [
+      [0, 3],
+      [3, 3]
+    ];
+    const expected = {
+      overlap: [[3, 3]],
+      notInclude: [[4, 20]]
+    };
+    expect(getNumberIntervals(input)).toEqual(expected);
+  });
+
+  test("identifies overlapping 2", () => {
+    const input = [
+      [0, 4],
+      [3, 3]
+    ];
+    const expected = {
+      overlap: [[3, 3]],
+      notInclude: [[5, 20]]
     };
     expect(getNumberIntervals(input)).toEqual(expected);
   });
