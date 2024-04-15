@@ -1,4 +1,4 @@
-const { addComma } = require("./addComma");
+import { addComma } from "./addComma";
 describe("addComma", () => {
   test("adds commas to an integer", () => {
     expect(addComma(1234567)).toBe("1,234,567");
