@@ -24,6 +24,7 @@ describe("addComma", () => {
   });
   test("handles numbers as strings", () => {
     expect(addComma("1234567")).toBe("1,234,567");
+    expect(addComma(".3")).toBe("0.3");
   });
 
   test("handles floating point numbers", () => {

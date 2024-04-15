@@ -4,7 +4,7 @@ export function addComma(num) {
     return "NaN";
   }
   const parts = strNum.split(".");
-  const intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") || "0";
   const floatPart = parts[1] || "";
   return floatPart ? `${intPart}.${floatPart}` : intPart;
 }
